@@ -1,27 +1,16 @@
-import { useState, useEffect } from "react";
+import { useGlobalContext } from "../contexts/globalContext";
 
 // display fee name, price (can be changed)
 function FeeCard({fee}) {
-    
-    const localStorageKey = fee.name;
 
-    // Load premia from localStorage, or fallback to fee.premia
-    const [premia, setPremia] = useState(() => {
-        const saved = localStorage.getItem(localStorageKey);
-        return saved !== null ? parseFloat(saved) : fee.premia;
-    });
-
-    // Save to localStorage whenever premia changes (syntax is run this function whenever that [] changes)
-    useEffect(() => {
-        localStorage.setItem(localStorageKey, premia);
-    }, [premia]);
+    const { getPremia, updatePremiaMap } = useGlobalContext();
+    const premia = getPremia(fee.name);
 
     function onPremiaClick() { // change premia value
-        const newValue = prompt("Enter new value:", premia).trim();
-        if (newValue === null || newValue === '') return; // User pressed Cancel or empty input
-
-        if(!isNaN(newValue)) setPremia(parseFloat(newValue));
-        else alert("Please enter a valid numeric value.")
+        const input = prompt("Enter new value:", premia).trim();
+        if (input === null || input === "") return; // User pressed Cancel or empty input
+        if (!isNaN(input)) updatePremiaMap(fee.name, parseFloat(input));
+        else alert("Please enter a valid number.");
     }
 
     return <div className="fee-card" style={{border: '1px solid black'}}>

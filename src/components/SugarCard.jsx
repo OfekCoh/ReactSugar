@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useGlobalContext } from "../contexts/globalContext";
+
 
 // display sugar name, premia, image, total price. and allow change of premia
 function SugarCard({sugar}) {

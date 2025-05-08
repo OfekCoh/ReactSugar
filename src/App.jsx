@@ -27,7 +27,7 @@ function App() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // so 
+  // load api only once
   useEffect(() => {
     const loadShekelValue = async () => {
       try {
@@ -84,3 +84,5 @@ function App() {
 }
 
 export default App
+
+// ((sugar+twebtyfivepremia+hytels+switchp+delivery)*double.parse(dollarrate)/1000)

@@ -47,10 +47,23 @@ export const GlobalProvider = ({children}) => {  // provide state to all compone
     useEffect(() => {
         const loadShekelValue = async () => {
         try {
-            const price= await getShekelValue();
-            setShekelValue(price);
+            const price= await getShekelValue(); // get api value
+
+            if (typeof price === "number" && !isNaN(price) && price > 0) { // if legit save it to local storage
+                setShekelValue(price);
+                localStorage.setItem("shekelValue", price);
+            } else {
+                const saved = localStorage.getItem("shekelValue"); // if null use last local storage
+                if (saved !== null) {
+                    setShekelValue(parseFloat(saved));
+                }
+            }
         } catch (err) {
             console.log(err);
+            const saved = localStorage.getItem("shekelValue");  // fallback if fetch fails
+            if (saved !== null) {
+                setShekelValue(parseFloat(saved));
+            }
             setError("Failed to load shekel value...")
         }
         finally {

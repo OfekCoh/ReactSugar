@@ -11,9 +11,9 @@ function App() {
   const sugars= [
     {id: 1, name:"1KG", premia:0, imageURL:"www"},
     {id: 2, name:"25KG", premia:0, imageURL:"www"},
-    // {id: 3, name:"BB", premia:0, imageURL:"www"},
-    // {id: 4, name:"Kosher", premia:0, imageURL:"www"},
-    // {id: 5, name:"BB-Kosher", premia:0, imageURL:"www"},
+    {id: 3, name:"BB", premia:0, imageURL:"www"},
+    {id: 4, name:"Kosher", premia:0, imageURL:"www"},
+    {id: 5, name:"BB-Kosher", premia:0, imageURL:"www"},
   ];
 
   // create fees
@@ -41,6 +41,14 @@ function App() {
     return { ...sugar, totalPrice };
   });
 
+  // copy text button
+  const sugarText = "damn damn"
+  
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(sugarText)
+  };
+
+
   // HTML PART
   return (
     <div className='Home'>
@@ -64,6 +72,10 @@ function App() {
         <h3>USD/ILS: {shekelValue.toFixed(2)}</h3> 
       )}
       {error && <div className='error-message'>{error}</div>}
+
+      <div>
+      <button onClick={copyToClipboard}>Copy Text</button>
+      </div>
 
     </div>
   )

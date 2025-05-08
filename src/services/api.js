@@ -1,6 +1,7 @@
 const BASE_URL = "https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=ILS&apikey=UUFWOP6OMZO2FT0Z";
 
 export const getShekelValue = async () => {
+    return 5 // just so the api wont be ruiend but normal value is 3.5694
     const response = await fetch(`${BASE_URL}`);
     const data = await response.json();
 

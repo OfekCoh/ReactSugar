@@ -1,13 +1,14 @@
 import { createContext, useState, useContext, useEffect } from "react";
+import { getShekelValue } from '../services/api';
 
 const GlobalContext = createContext()
 export const useGlobalContext = () => useContext(GlobalContext)
 
 const defaultMap = {
-    Hytels: 0,
+    Hytels: 0,  // fees
     Delivery: 0,
     Switch: 0,
-    "1KG" : 0, 
+    "1KG" : 0,  // sugars
     "25KG" : 0, 
     "BB" : 0, 
     "Kosher" : 0, 
@@ -20,7 +21,7 @@ export const GlobalProvider = ({children}) => {  // provide state to all compone
     const [premiaMap, setMap] = useState(() => {
         const saved = localStorage.getItem("premiaMap"); // get the whole map
         return saved ? JSON.parse(saved) : defaultMap;
-      });
+    });
     
     // save map to local storage anything changes in the map
     useEffect(() => {
@@ -37,8 +38,30 @@ export const GlobalProvider = ({children}) => {  // provide state to all compone
             [name]: value,
         }));
     };
-    
-    const value= { getPremia, updatePremiaMap }
+
+    // get shekel value api (only once when page loads)
+    const [shekelValue, setShekelValue] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    // load api only once
+    useEffect(() => {
+        const loadShekelValue = async () => {
+        try {
+            const price= await getShekelValue();
+            setShekelValue(price);
+        } catch (err) {
+            console.log(err);
+            setError("Failed to load shekel value...")
+        }
+        finally {
+            setLoading(false);
+        }
+        }
+        loadShekelValue();
+    },[]) 
+
+    const value= { getPremia, updatePremiaMap, shekelValue, loading, error }
 
     return <GlobalContext.Provider value={value}>
         {children}

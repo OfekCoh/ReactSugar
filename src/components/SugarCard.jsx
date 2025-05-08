@@ -13,16 +13,14 @@ function SugarCard({sugar}) {
         else alert("Please enter a valid number.");
     }
 
-    const totalPrice = premia * 10; // example total price calculation
-
     return <div className="sugar-card" style={{border: '1px solid black'}}>
-        {/* <div className="sugar-image">
+        <div className="sugar-image">
             <img src={sugar.imageURL} alt="imageURL"/>
-        </div> */}
+        </div>
         <div className="sugar-info">
             <h3>{sugar.name}</h3>
             <button className="PremiaChangeBtn" onClick={onPremiaClick}>premia: {premia}</button>
-            <p>total price: {totalPrice}</p>
+            <p>total price: {sugar.totalPrice.toFixed(3)}</p>
         </div>
     </div>
 }

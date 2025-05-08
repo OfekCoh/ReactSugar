@@ -13,6 +13,7 @@ const defaultMap = {
     "BB" : 0, 
     "Kosher" : 0, 
     "BB-Kosher" : 0, 
+    "Sugar Price" : 0, // market price
   };
 
 export const GlobalProvider = ({children}) => {  // provide state to all components that are wrapped around it
@@ -40,11 +41,9 @@ export const GlobalProvider = ({children}) => {  // provide state to all compone
     };
 
     // get shekel value api (only once when page loads)
-    const [shekelValue, setShekelValue] = useState(null);
+    const [shekelValue, setShekelValue] = useState();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
-    // load api only once
     useEffect(() => {
         const loadShekelValue = async () => {
         try {
@@ -61,7 +60,8 @@ export const GlobalProvider = ({children}) => {  // provide state to all compone
         loadShekelValue();
     },[]) 
 
-    const value= { getPremia, updatePremiaMap, shekelValue, loading, error }
+    // pass relevant values to whoever needs it
+    const value= { getPremia, updatePremiaMap, shekelValue, loading, error } 
 
     return <GlobalContext.Provider value={value}>
         {children}

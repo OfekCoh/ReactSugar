@@ -1,0 +1,12 @@
+// react code/component needs to end in .jsx
+
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx' // where the react code lives
+
+createRoot(document.getElementById('root')).render(  // get root div from index.html and throw everythin in App into it
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)

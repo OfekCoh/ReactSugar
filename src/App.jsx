@@ -64,9 +64,8 @@ function App() {
   // HTML PART
   return (
     <div className='Home'>
-      
+
       <div className='SugarTypes'>            
-        <h3>sugar types:</h3>
         {sugarsWithTotal.map((sugar) => (
           <SugarCard sugar={sugar} key={sugar.id} />
         ))}
@@ -93,5 +92,5 @@ function App() {
   )
 }
 
-export default App  //1080 x 2340 pixels
+export default App  
 

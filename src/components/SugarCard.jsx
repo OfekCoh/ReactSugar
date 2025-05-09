@@ -15,14 +15,14 @@ function SugarCard({sugar}) {
         else alert("Please enter a valid number.");
     }
 
-    return <div className="sugar-card" style={{border: '1px solid black'}}>
+    return <div className="sugar-card">
         <div className="sugar-image">
             <img src={sugar.imageURL} alt="imageURL"/>
         </div>
         <div className="sugar-info">
-            <h3>{sugar.name}</h3>
+            <div className="sugar-info-name">{sugar.name}</div>
             <button className="PremiaChangeBtn" onClick={onPremiaClick}>premia: {premia}</button>
-            <p>total price: {sugar.totalPrice.toFixed(3)}</p>
+            <div className="sugar-info-price">total price: {sugar.totalPrice.toFixed(3)}</div>
         </div>
     </div>
 }

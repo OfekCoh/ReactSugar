@@ -1,7 +1,10 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* Ensures content flows vertically */
   text-align: center;
   z-index: 0;
 }
@@ -45,4 +48,36 @@
 .copyContainer:active::before {
   filter: blur(0.2em);
 }
+
+@media (max-width: 768px) {
+  /* Modify font size, padding, or layout for small screens */
+  .copyButton {
+    font-size: 1.2em;
+    padding: 0.5em 0.6em;
+  }
+}
 /* --------end of copy button ---------------------------------------------------------*/
+
+.Home {
+  display: flex; /* Make the container a flex container */
+  flex-direction: column; /* VBox layout */
+  width: 100%;  /* Fills #root */
+  height: 100%; 
+  overflow: hidden;  /* no scrolling */
+}
+
+.PremiaChangeBtn {
+    margin: 8px 0;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.PremiaChangeBtn:hover {
+    background-color: #0056b3;
+}

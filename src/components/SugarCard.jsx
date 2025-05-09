@@ -1,3 +1,5 @@
+import '../css/SugarCard.css'
+
 import { useGlobalContext } from "../contexts/globalContext";
 
 // display sugar name, premia, image, total price. and allow change of premia

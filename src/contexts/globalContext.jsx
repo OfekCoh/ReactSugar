@@ -41,7 +41,10 @@ export const GlobalProvider = ({children}) => {  // provide state to all compone
     };
 
     // get shekel value api (only once when page loads)
-    const [shekelValue, setShekelValue] = useState();
+    const [shekelValue, setShekelValue] = useState(() => {
+        const saved = localStorage.getItem("shekelValue"); // get the old shekel value
+        return saved ? JSON.parse(saved) : 3.57;
+    });
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     useEffect(() => {

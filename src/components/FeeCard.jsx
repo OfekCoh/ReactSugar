@@ -1,3 +1,4 @@
+import '../css/FeeCard.css'
 import { useGlobalContext } from "../contexts/globalContext";
 
 // display fee name, price (can be changed)

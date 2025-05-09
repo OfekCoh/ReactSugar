@@ -1,5 +1,4 @@
 import './App.css'
-import { useState, useEffect } from "react";
 import SugarCard from "./components/SugarCard"
 import FeeCard from "./components/FeeCard"
 import { useGlobalContext } from './contexts/globalContext';
@@ -36,16 +35,28 @@ function App() {
   // calculate total sugar prices
   const sugarsWithTotal = sugars.map((sugar) => {
     const premia = getPremia(sugar.name);
-    const totalPrice = ((SugarPrice + premia + Hytels + Delivery + Switch)* shekelValue)/1000
-    ; 
+    const totalPrice = ((SugarPrice + premia + Hytels + Delivery + Switch)* shekelValue)/1000;
     return { ...sugar, totalPrice };
   });
 
-  // copy text button
-  const sugarText = "damn damn"
+  // copy text button  ${sugarsWithTotal[0].totalPrice.toFixed(2)}
+
+  const goodMorningText = `
+  בוקר טוב
+  הבורסה היום: ${SugarPrice.toFixed(2)}
+  שער הדולר: ${shekelValue.toFixed(2)}
+  
+  קילו: ${sugarsWithTotal[0].totalPrice.toFixed(2)}
+  25 קילו: ${sugarsWithTotal[1].totalPrice.toFixed(2)}
+  ביג בג: ${sugarsWithTotal[2].totalPrice.toFixed(2)}
+  
+  25 קילו בדצ כשלפ: ${sugarsWithTotal[3].totalPrice.toFixed(2)}
+  ביג בג בדצ כשלפ: ${sugarsWithTotal[4].totalPrice.toFixed(2)}
+  
+  יום טוב!`
   
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(sugarText)
+    navigator.clipboard.writeText(goodMorningText)
   };
 
 

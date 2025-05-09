@@ -20,12 +20,22 @@ function SugarCard({sugar}) {
             <img src={sugar.imageURL} alt="imageURL"/>
         </div>
         <div className="sugar-info">
+
             <div className='info-left-side'>
                 <div className="sugar-info-name">{sugar.name}</div>
                 <button className="PremiaChangeBtn" onClick={onPremiaClick}>premia: {premia}</button>
             </div>
-            <div className="sugar-info-price">{sugar.totalPrice.toFixed(3)}</div>
+
+            <div className="sugar-info-price"> {sugar.totalPrice.toFixed(3)} </div>
+
         </div>
+
+        {(sugar.name === "1KG" || sugar.name === "25KG") && (
+        <div className="floating-text">
+            with taxes: {(sugar.totalPrice * (sugar.name === "1KG" ? 12 : 25) * 1.18).toFixed(3)}
+        </div>
+        )}
+
     </div>
 }
 

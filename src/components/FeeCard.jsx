@@ -16,7 +16,8 @@ function FeeCard({fee}) {
 
     return <div className="fee-card">
         <div className="fee-info">
-            <button className="PremiaChangeBtn" onClick={onPremiaClick}>{fee.name}: {premia}</button>
+            <button className="PremiaChangeBtn" onClick={onPremiaClick}>
+                {fee.name === "Sugar Price" ? `${fee.name}: $${premia}` : `${fee.name}: ${premia}`}</button>
         </div>
     </div>
 }

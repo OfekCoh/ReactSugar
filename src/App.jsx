@@ -37,7 +37,7 @@ function App() {
   const sugarsWithTotal = sugars.map((sugar) => {
     const premia = getPremia(sugar.name);
     const totalPrice = ((SugarPrice + premia + Hytels + Delivery + Switch)* shekelValue)/1000;
-    return { ...sugar, totalPrice };
+    return { ...sugar, totalPrice};
   });
 
   // good morning text to copy

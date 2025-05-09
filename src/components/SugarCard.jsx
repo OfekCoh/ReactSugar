@@ -26,13 +26,13 @@ function SugarCard({sugar}) {
                 <button className="PremiaChangeBtn" onClick={onPremiaClick}>premia: {premia}</button>
             </div>
 
-            <div className="sugar-info-price"> {sugar.totalPrice.toFixed(3)} </div>
+            <div className="sugar-info-price"> {sugar.totalPrice.toFixed(2)} </div>
 
         </div>
 
         {(sugar.name === "1KG" || sugar.name === "25KG") && (
         <div className="floating-text">
-            with taxes: {(sugar.totalPrice * (sugar.name === "1KG" ? 12 : 25) * 1.18).toFixed(3)}
+            with taxes: {(sugar.totalPrice * (sugar.name === "1KG" ? 12 : 25) * 1.18).toFixed(2)}
         </div>
         )}
 

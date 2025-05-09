@@ -14,7 +14,7 @@ function FeeCard({fee}) {
         else alert("Please enter a valid number.");
     }
 
-    return <div className="fee-card" style={{border: '1px solid black'}}>
+    return <div className="fee-card">
         <div className="fee-info">
             <button className="PremiaChangeBtn" onClick={onPremiaClick}>{fee.name}: {premia}</button>
         </div>

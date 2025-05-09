@@ -72,17 +72,23 @@ function App() {
       </div>
         
       <div className='Fees'>
-        {fees.map((fee) => (
+        {fees.filter(fee => fee.name !== "Sugar Price").map((fee) => (
           <FeeCard fee={fee} key={fee.id} />
         ))}
       </div>
 
-      {loading ? ( 
-        <div className='loading'>Loading...</div>
-      ) : (
-        <h3>USD/ILS: {shekelValue.toFixed(2)}</h3> 
-      )}
-      {error && <div className='error-message'>{error}</div>}
+      <div className='sugarDollarPrice'>
+        <FeeCard fee={fees.find(fee => fee.id === 4)} key={4} />
+      </div>
+
+      <div className='shekelValue'>
+        {loading ? ( 
+          <div className='loading'>Loading...</div>
+        ) : (
+          <div>USD/ILS: {shekelValue.toFixed(2)}</div> 
+        )}
+        {error && <div className='error-message'>{error}</div>}
+      </div>
 
       <div className="copyContainer">
       <button class="copyButton" onClick={copyToClipboard}>Copy Text</button>

@@ -8,11 +8,70 @@
   text-align: center;
   z-index: 0;
 }
-/* screen res: 1080 x 2340 pixels */
-/* --------copy button ---------------------------------------------------------*/
+
+/* ----------------------------------- Home ---------------------------------------------------------*/
+.Home {
+  display: flex; /* Make the container a flex container */
+  flex-direction: column; /* VBox layout */
+  width: 100%;  /* Fills #root */
+  height: 100%; 
+  overflow: hidden;  /* no scrolling */
+  justify-content: space-between;
+}
+
+
+/* --------------------------------- all premia buttons -------------------------------------------------------------- */
+.PremiaChangeBtn {
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 1.5);
+  cursor: pointer;
+  background-color: #724e1f;
+  transition: background-color 0.3s ease;
+  
+}
+.PremiaChangeBtn:hover {
+  background-color: #bad3ee;
+}
+
+
+/* ------------------------------ fees section -------------------------------------------------------------- */
+.Fees {
+  display: flex;
+  flex-direction: row;  /* Aligns the FeeCard components in a row */
+  justify-content: flex-start;  
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+/* ------------------------------ sugar dollar price -------------------------------------------------------------- */
+.sugarDollarPrice .PremiaChangeBtn {
+  font-size: 1.5rem;      
+  background: none;
+  color: black;
+  max-height: 61px;
+}
+
+
+/* ------------------------------ shekel dollar price -------------------------------------------------------------- */
+.shekelValue {
+  font-size: 1.5rem;      
+  max-height: 61px;
+  display: flex;
+  flex-direction: row;  /* Ensure the elements are aligned horizontally */
+  justify-content: center; /* Centers content horizontally */
+  align-items: center;
+}
+
+
+/* ----------------------------copy text button -----------------------------------------------------------------------*/
 .copyButton {
-  font-size: 1.4em;
-  padding: 0.6em 0.8em;
+  font-size: 1.2em;
+  padding: 0.5em 0.6em;
   border-radius: 0.5em;
   border: none;
   background-color: #000;
@@ -25,6 +84,9 @@
   display: inline-block; /* Ensures the container only takes the width of the button */
   position: relative;
   padding: 3px;
+  max-width: min-content;
+  margin: 0 auto; /* Centers the container horizontally */
+  margin-bottom: 20px; /* Adds space below the container */
   background: linear-gradient(90deg, #03a9f4, #f441a5);
   border-radius: 0.9em;
   transition: all 0.4s ease;
@@ -49,35 +111,5 @@
   filter: blur(0.2em);
 }
 
-@media (max-width: 768px) {
-  /* Modify font size, padding, or layout for small screens */
-  .copyButton {
-    font-size: 1.2em;
-    padding: 0.5em 0.6em;
-  }
-}
-/* --------end of copy button ---------------------------------------------------------*/
-
-.Home {
-  display: flex; /* Make the container a flex container */
-  flex-direction: column; /* VBox layout */
-  width: 100%;  /* Fills #root */
-  height: 100%; 
-  overflow: hidden;  /* no scrolling */
-}
-
-.PremiaChangeBtn {
-    margin: 8px 0;
-    padding: 8px 12px;
-    font-size: 0.95rem;
-    border: none;
-    border-radius: 6px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.PremiaChangeBtn:hover {
-    background-color: #0056b3;
-}
+/* margin = space around the body : a b c d goes to top right bottom left  */
+/* padding = space between content and the border (makes component larger) */

@@ -53,10 +53,10 @@
 .sugar-info-price {
     font-size: 20px;
     font-weight: 400;
-    /* color: #4b39ef; */
     color: black;
     /* background: #f5b237; */
-    background: #d9cfc1;
+    background: #f8c45d;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     border-radius: 6px;
     align-self: flex-start; 
 }

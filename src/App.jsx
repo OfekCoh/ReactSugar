@@ -91,7 +91,7 @@ function App() {
       </div>
 
       <div className="copyContainer">
-      <button class="copyButton" onClick={copyToClipboard}>Copy copy</button>
+      <button class="copyButton" onClick={copyToClipboard}>Copy Text</button>
       </div>
 
     </div>

@@ -25,12 +25,22 @@
 }
 
 .sugar-info {
-    flex-grow: 1; 
-    flex-direction: column;
-    /* display: flex; */
+    display: flex;   /* make that div a container */
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 1;  /* tell items to take as much space as they can */
+    align-items: center; /* optional, aligns items vertically */
+    padding-left: 8px;
+    padding-right: 15px;
     /* background-color: white; */
     /* border-top-right-radius: 16px;
     border-bottom-right-radius: 16px; */
+}
+
+.info-left-side {
+    display: flex;   /* make that div a container */
+    flex-direction: column;
+    align-items: baseline; /* stick to left */
 }
 
 .sugar-info-name {
@@ -38,11 +48,13 @@
     font-weight: 500;
 }
 
-/* margin = space around the body : a b c d goes to top right bottom left  */
-/* padding = space between content and the border (makes component larger) */
-
 .sugar-info-price {
     font-size: 16px;
     font-weight: 500;
     color: #4b39ef;
+    align-self: flex-start; 
 }
+
+/* margin = space around the body : a b c d goes to top right bottom left  */
+/* padding = space between content and the border (makes component larger) */
+

@@ -20,9 +20,11 @@ function SugarCard({sugar}) {
             <img src={sugar.imageURL} alt="imageURL"/>
         </div>
         <div className="sugar-info">
-            <div className="sugar-info-name">{sugar.name}</div>
-            <button className="PremiaChangeBtn" onClick={onPremiaClick}>premia: {premia}</button>
-            <div className="sugar-info-price">total price: {sugar.totalPrice.toFixed(3)}</div>
+            <div className='info-left-side'>
+                <div className="sugar-info-name">{sugar.name}</div>
+                <button className="PremiaChangeBtn" onClick={onPremiaClick}>premia: {premia}</button>
+            </div>
+            <div className="sugar-info-price">{sugar.totalPrice.toFixed(3)}</div>
         </div>
     </div>
 }

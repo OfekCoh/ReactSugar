@@ -55,6 +55,9 @@
     font-weight: 400;
     /* color: #4b39ef; */
     color: black;
+    /* background: #f5b237; */
+    background: #f5b237;
+    border-radius: 6px;
     align-self: flex-start; 
 }
 

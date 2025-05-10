@@ -82,7 +82,7 @@ function SugarCard({sugar}) {
 
         {(sugar.name === "1KG" || sugar.name === "25KG") && (
         <div className="floating-text">
-            with taxes: {(sugar.totalPrice * (sugar.name === "1KG" ? 12 : 25) * 1.18).toFixed(2)}
+            with taxes: {(sugar.totalPrice * (sugar.name === "1KG" ? 10 : 25) * 1.18).toFixed(2)}
         </div>
         )}
     </div>

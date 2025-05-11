@@ -36,7 +36,7 @@ function App() {
   // calculate total sugar prices
   const sugarsWithTotal = sugars.map((sugar) => {
     const premia = getPremia(sugar.name);
-    const totalPrice = ((SugarPrice + premia + Hytels + Delivery + Switch)* shekelValue)/1000;
+    const totalPrice = Math.round((((SugarPrice + premia + Hytels + Delivery + Switch) * shekelValue) / 1000) * 100) / 100;
     return { ...sugar, totalPrice};
   });
 
